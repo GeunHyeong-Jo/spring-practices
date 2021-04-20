@@ -31,6 +31,5 @@
 
 	<modules>
 		<module>hellospring03</module>
-		<module>hellospring</module>
 	</modules>
 </project>
