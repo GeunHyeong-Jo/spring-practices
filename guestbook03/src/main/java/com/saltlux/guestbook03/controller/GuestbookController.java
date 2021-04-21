@@ -27,7 +27,7 @@ public class GuestbookController {
 	}
 
 	@RequestMapping(value = "/deleteform", method = RequestMethod.POST)
-	public String delete(@RequestParam("vo.no") String no, Model model) {
+	public String delete(String no, Model model) {
 		System.out.println(no);
 		model.addAttribute("no", no);
 		return "WEB-INF/views/deleteform.jsp";
@@ -35,6 +35,7 @@ public class GuestbookController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(GuestbookVo vo) {
+		System.out.println(vo);
 		emaillistRepository.delete(vo);
 		return "redirect:/";
 	}

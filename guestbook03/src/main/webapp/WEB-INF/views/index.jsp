@@ -3,7 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% pageContext.setAttribute( "newLine", "\n" ); %>
+<%
+pageContext.setAttribute("newLine", "\n");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,10 +29,11 @@
 		</table>
 	</form>
 	<br>
-	<form action="${pageContext.request.contextPath }/deleteform"
-		method="post">
-		<table width=510 border=1>
-			<c:forEach items="${list }" var='vo' varStatus="status">
+
+	<c:forEach items="${list }" var='vo' varStatus="status">
+		<form action="${pageContext.request.contextPath }/deleteform"
+			method="post">
+			<table width=510 border=1>
 				<tr>
 					<td><input type='hidden' name="no" value="${vo.no }">
 						${status.count }</td>
@@ -41,8 +44,8 @@
 				<tr>
 					<td colspan=4>${fn:replace(vo.contents, newLine, "<br>") }</td>
 				</tr>
-			</c:forEach>
-		</table>
-	</form>
+			</table>
+		</form>
+	</c:forEach>
 </body>
 </html>
